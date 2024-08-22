@@ -20,5 +20,5 @@ const myTransportation = 12
 // 9. Add up points
  const cfpTotal = myHousehold + myHouseSize + myFood + myWater + myPurchases + myWaste + myrecycling + myTransportation
 // 10. Write JS to render in HTML with total
-const myHeading = document.querySelector("h2");
-myHeading.textContent = "107!";
+const myTotal = document.querySelector("h2");
+myTotal.textContent = cfpTotal;
