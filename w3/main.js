@@ -16,8 +16,7 @@ function determineHouseHoldPts(numberInHousehold) {
     carbonFootprintPoints = carbonFootprintPoints + 2;
   }
   console.log(
-    `based on the number of members of the household of ${numberInHousehold} the points would be ${carbonFootprintPoints}.`
-  );
+    `based on the number of members of the household of ${numberInHousehold} the points would be ${carbonFootprintPoints}.`);
 }
 
 let carbonFootprintPoints = 0;
@@ -27,3 +26,18 @@ let carbonFootprintPoints = 0;
 
 determineHouseHoldPts(3);
 determineHouseHoldPts(4);
+
+function determineHouseSizePts(houseSize) {
+    if (houseSize === "large") {
+        carbonFootprintPoints = carbonFootprintPoints + 10;
+    } else if (houseSize === "medium") {
+        carbonFootprintPoints = carbonFootprintPoints + 7;
+    } else if (houseSize === "small") {
+        carbonFootprintPoints = carbonFootprintPoints + 4;
+    } else if (houseSize === "apartment") {
+        carbonFootprintPoints = carbonFootprintPoints + 2;
+    }
+    console.log(`based on the my house size, ${houseSize}, the new carbon FP total would be ${carbonFootprintPoints}.`);
+}
+
+determineHouseSizePts("medium")
