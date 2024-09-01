@@ -24,8 +24,7 @@ let carbonFootprintPoints = 0;
 
 //global scope
 
-determineHouseHoldPts(3);
-determineHouseHoldPts(4);
+determineHouseHoldPts(5);
 
 function determineHouseSizePts(houseSize) {
     if (houseSize === "large") {
@@ -40,6 +39,7 @@ function determineHouseSizePts(houseSize) {
     console.log(`based on the my house size, ${houseSize}, the new carbon FP total would be ${carbonFootprintPoints}.`);
 }
 
+determineHouseHoldPts(5)
 determineHouseSizePts("medium")
 
 /* while working on the code, i just looked at what we had done for the members in household work and basically did the same thing. I just changed any names to go with house size instead of memebers. I was having trouble with an error that kept popping up. Turns out i didn't identify any of the actual house sizes (large, medium, small, apt). I kind of had to look it up and it turns out i just forgot to put quotes around them */
