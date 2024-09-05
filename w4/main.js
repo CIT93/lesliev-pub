@@ -33,7 +33,7 @@ function determineHouseHoldPts(numberInHousehold) {
   } else if (numberInHousehold > 6) {
     houseHoldPoints = 2;
   }
-
+  return houseHoldPoints
 }
 
 
@@ -48,7 +48,13 @@ function start(numberInHousehold, houseSize) {
 }
 
 function displayOutput() {
-  
+  for (arr of cfpData){
+    console.log(arr)
+    const output = document.getElementById("output");
+    const newP = document.createElement("p");
+    newP.textContent = `If your house is ${arr[1]} sized, you add ${arr[2]} points to your carbon foorprint with additional points for each household member. If you have ${arr[0]} members in your household add ${arr[3]} points. Your Carbon Footprint total would be ${arr[4]}.`;
+    output.appendChild(newP)
+  }
 }
 
 start(5, "medium");
@@ -74,7 +80,7 @@ start(1, "small");
 start(2, "small");
 start(3, "small");
 start(5, "small");
-start(6, "small");
+start(6, "small"); 
 
 displayOutput()
 
