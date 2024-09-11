@@ -38,9 +38,7 @@ function determineHouseHoldPts(numberInHousehold) {
 
 
 
-console.log("global scope")
-
-function displayOutObj(obj) {
+/* function displayOutObj(obj) {
   console.log(obj)
   const output = document.getElementById("output");
   const newH2 = document.createElement("h2");
@@ -52,7 +50,7 @@ function displayOutObj(obj) {
   output.appendChild(newH2);
   output.appendChild(newH3);
   output.appendChild(newP);
-}
+} */
 
 function start(numberInHousehold, houseSize) {
   const houseHoldPTS = determineHouseHoldPts(numberInHousehold);
@@ -78,13 +76,13 @@ function start(numberInHousehold, houseSize) {
     const output = document.getElementById("output");
     const newH2 = document.createElement("h2");
      newH2.textContent = `Carbon Footpring ${obj.cfpTotal}`;
-    /*const newH3 = document.createElement("h3");
+    const newH3 = document.createElement("h3");
     newH3.textContent = `Based on number in and size of home`
     const newP = document.createElement("p");
-    newP.textContent = `Number is based on the number of people in a house of  ${arr[0]} (score:${arr[3]}) and a(n) ${arr[1]}  sized home (score:${arr[2]}).`;*/
+    newP.textContent = `Number is based on the number of people in a house of  ${obj.houseM} (score:${obj.houseMPTS}) and a(n) ${obj.houseS}  sized home (score:${obj.houseSPTS}).`;
     output.appendChild(newH2);
-    // output.appendChild(newH3);
-    // output.appendChild(newP); 
+    output.appendChild(newH3);
+    output.appendChild(newP); 
   }
 }
  
