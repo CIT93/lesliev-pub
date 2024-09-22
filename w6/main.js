@@ -62,7 +62,7 @@ function start(numberInHousehold, houseSize, firstname, lastname) {
     const newH2 = document.createElement("h2");
      newH2.textContent = `Carbon Footpring ${obj.cfpTotal}`;
     const newH3 = document.createElement("h3");
-    newH3.textContent = `Based on number of people and size of home for ${FORM.firstname.value} ${FORM.lastname.value}`
+    newH3.textContent = `Based on number of people and size of home for ${obj.firstName} ${obj.lastName}`
     const newP = document.createElement("p");
     newP.textContent = `Number is based on the number of people in a house of  ${obj.houseM} (score:${obj.houseMPTS}) and a(n) ${obj.houseS}  sized home (score:${obj.houseSPTS}).`;
     OUTPUT.appendChild(newH2);
