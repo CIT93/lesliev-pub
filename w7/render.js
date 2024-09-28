@@ -1,6 +1,7 @@
 const TBL = document.getElementById("tab-data")
 
 function renderTblHeading () {
+  TBL.innerHTML = "";
     const table = document.createElement("table");
     const thead = document.createElement ("thead");
     const tr = document.createElement ("tr");
@@ -24,6 +25,10 @@ function renderTblHeading () {
 
   data.forEach(function(obj) {
     const tr = document.createElement ("tr");
+    const tdName = document.createElement("td");
+    tdName.textContent = obj.firstName;
+    const tdTotal = document.createElement("td");
+    tdTotal.textContent = obj.cfpTotal
     const tblArr = [
       obj.firstName,
       obj.houseS,
