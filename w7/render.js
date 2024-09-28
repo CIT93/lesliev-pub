@@ -20,11 +20,25 @@ function renderTblHeading () {
     const table = renderTblHeading();
     const tbody = document.createElement("tbody");
     const tr = document.createElement("tr");
-    const trTextArr = ["Leslie", 3, "Medium", 20]
-  trTextArr.forEach(function(text){
-    const td = document.createElement("td")
-    td.textContent = text;
-    tr.appendChild(td);
+
+
+  data.forEach(function(obj) {
+    const tr = document.createElement ("tr");
+    const tblArr = [
+      obj.firstName,
+      obj.houseS,
+      obj.houseM, 
+      obj.cfpTotal
+    ];
+
+    tblArr.forEach(function(text){
+      const td = document.createElement("td")
+      td.textContent = text;
+      tr.appendChild(td);
+    });
+
+    tbody.appendChild(tr);
+    
   })
   const td = document.createElement("td");
   const btnEdit = document.createElement("button");
@@ -39,7 +53,9 @@ function renderTblHeading () {
   table.appendChild(tbody);
   console.log(table)
   TBL.appendChild(table);
+  document.getElementById('TBL').appendChild(table);
   
   }
+
 
   export {renderTbl, renderTblHeading};
