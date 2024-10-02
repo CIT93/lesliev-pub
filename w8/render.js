@@ -29,16 +29,18 @@ function renderTblHeading () {
     btnDel.addEventListener('click', function(e){
       console.log('Hello from delete button')
       console.log(e);
+      if (btnDel){
+
+      }
 
       data.splice(index, 1);
       renderTbl(data);
     })
     btnEdit.addEventListener('click', function(e){
-      console.log('Hello from Edit button')
-      console.log(e)
-      const setData = data[index];
-      const editName = ("edit name:", setData.name);
-      const edit
+      this.form.elements['firstName']
+      this.form.elements['lastName']
+      this.form.elements['houseMPTS']
+      this.form.elements['houseSPTS']
     })
     return td;
   }
