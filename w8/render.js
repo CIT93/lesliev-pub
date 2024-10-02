@@ -36,7 +36,9 @@ function renderTblHeading () {
     btnEdit.addEventListener('click', function(e){
       console.log('Hello from Edit button')
       console.log(e)
-      Object.keys(data[index])
+      const setData = data[index];
+      const editName = ("edit name:", setData.name);
+      const edit
     })
     return td;
   }
