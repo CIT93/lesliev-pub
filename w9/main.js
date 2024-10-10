@@ -31,14 +31,13 @@ FORM.addEventListener('submit', function(e){
   const lastName = FORM.lastname.value;
   const houseMembers = parseInt(FORM.housem.value);
   const houseSize = FORM.houses.value;
-  const errorElement = document.getElementById('error')
   start(houseMembers, houseSize, firstName, lastName);
   saveLS(cfpData);
   renderTbl(cfpData);
   FORM.reset();
 })
 
-function validateField(event) {
+const validateField = event => {
   const field = event.target.value;
   const fieldId = event.target.id;
   const fieldError = document.getElementById(`${fieldId}Error`);
@@ -55,7 +54,7 @@ function validateField(event) {
 document.getElementById('firstName').addEventListener('blur', validateField);
 document.getElementById('lastName').addEventListener('blur', validateField);
 
-document.getElementById('simpleForm').addEventListener('submit', function (event) {
+document.getElementById('form').addEventListener('submit', function (event) {
   event.preventDefault();
   const firstNameIsValid = document.getElementById('firstName').value !== '';
   const lastNameIsValid = document.getElementById('lastName').value !== '';
