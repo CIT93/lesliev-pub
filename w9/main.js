@@ -3,6 +3,10 @@ import { determineHouseSizePts, determineHouseHoldPts } from "./carbon.js";
 import {FORM} from "./global.js"
 import {cfpData, saveLS, getLS} from "./storage.js"
 
+const firstNameEl = document.getElementById('firstName');
+const lastNameEl = document.getElementById('lastName');
+const submitEl = document.getElementById("submitError");
+
 console.log("top of file")
 
 
@@ -25,19 +29,7 @@ function start(numberInHousehold, houseSize, firstname, lastname) {
 
 renderTbl(cfpData)
 
-FORM.addEventListener('submit', function(e){
-  e.preventDefault();
-  const firstName = FORM.firstname.value;
-  const lastName = FORM.lastname.value;
-  const houseMembers = parseInt(FORM.housem.value);
-  const houseSize = FORM.houses.value;
-  start(houseMembers, houseSize, firstName, lastName);
-  saveLS(cfpData);
-  renderTbl(cfpData);
-  FORM.reset();
-})
-
-const validateField = event => {
+function validateField(event) {
   const field = event.target.value;
   const fieldId = event.target.id;
   const fieldError = document.getElementById(`${fieldId}Error`);
@@ -51,14 +43,29 @@ const validateField = event => {
   }
 };
 
-document.getElementById('firstName').addEventListener('blur', validateField);
-document.getElementById('lastName').addEventListener('blur', validateField);
+firstNameEl.addEventListener('blur', validateField);
+lastNameEl.addEventListener('blur', validateField);
 
-document.getElementById('form').addEventListener('submit', function (event) {
-  event.preventDefault();
-  const firstNameIsValid = document.getElementById('firstName').value !== '';
-  const lastNameIsValid = document.getElementById('lastName').value !== '';
+
+FORM.addEventListener('submit', function(e){
+  e.preventDefault();
+  const firstName = FORM.firstname.value;
+  const lastName = FORM.lastname.value;
+  const firstNameIsValid = firstNameEl.value !== '';
+  const lastNameIsValid = lastNameEl.value !== '';
   if (firstNameIsValid && lastNameIsValid) {
-      alert('Proceed with form');
-  }
+    submitEl.textContent = '';
+    const houseMembers = parseInt(FORM.housem.value);
+    const houseSize = FORM.houses.value;
+    start(houseMembers, houseSize, firstName, lastName);
+    saveLS(cfpData);
+    renderTbl(cfpData);
+    FORM.reset();
+} else {
+  submitEl.textContent = "Form requires first & last name";
+}
+  
 })
+
+
+
