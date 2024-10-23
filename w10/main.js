@@ -4,15 +4,31 @@ import {FORM, FNAME, LNAME, SUBMIT} from "./global.js"
 import {cfpData, saveLS} from "./storage.js"
 
 
-const start = (numberInHousehold, houseSize, firstname, lastname) => {
-  const houseHoldPTS = determineHouseHoldPts(numberInHousehold);
-  const houseSizePTS = determineHouseSizePts(houseSize);
+// const start = (numberInHousehold, houseSize, firstname, lastname) => {
+//   const houseHoldPTS = determineHouseHoldPts(numberInHousehold);
+//   const houseSizePTS = determineHouseSizePts(houseSize);
+//   const total = houseHoldPTS + houseSizePTS;
+//   cfpData.push({
+//     firstName: firstname,
+//     lastName: lastname,
+//     houseM: numberInHousehold,
+//     houseS: houseSize,
+//     houseMPTS: houseHoldPTS,
+//     houseSPTS: houseSizePTS,
+//     cfpTotal: total
+//   });
+
+// }
+
+const start = (...i) => {
+  const houseHoldPTS = determineHouseHoldPts(i[2]);
+  const houseSizePTS = determineHouseSizePts(i[3]);
   const total = houseHoldPTS + houseSizePTS;
   cfpData.push({
-    firstName: firstname,
-    lastName: lastname,
-    houseM: numberInHousehold,
-    houseS: houseSize,
+    firstName: i[0],
+    lastName: i[1],
+    houseM: i[2],
+    houseS: i[3],
     houseMPTS: houseHoldPTS,
     houseSPTS: houseSizePTS,
     cfpTotal: total
