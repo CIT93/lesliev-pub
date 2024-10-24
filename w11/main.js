@@ -1,20 +1,23 @@
 import { renderTbl } from "./render.js";
-import { determineHouseSizePts, determineHouseHoldPts } from "./carbon.js";
+import { determineHouseSizePts, determineHouseHoldPts, determineFoodChoicesPts } from "./carbon.js";
 import {FORM, FNAME, LNAME, SUBMIT} from "./global.js";
 import {cfpData, saveLS} from "./storage.js";
 import{FP} from "./fp.js";
 
-const start = (houseMembers, houseSize, first, last) => {
+const start = (houseMembers, houseSize, first, last, foodChoices) => {
   const houseHoldPTS = determineHouseHoldPts(houseMembers);
   const houseSizePTS = determineHouseSizePts(houseSize);
-  const total = houseHoldPTS + houseSizePTS;
+  const foodChoicesPTS = determineFoodChoicesPts(foodChoices);
+  const total = houseHoldPTS + houseSizePTS + foodChoicesPTS;
   cfpData.push({
     firstName: first,
     lastName: last,
     houseM: houseMembers,
     houseS: houseSize,
+    foodChoice: foodChoices,
     houseMPTS: houseHoldPTS,
     houseSPTS: houseSizePTS,
+    foodC: foodChoicesPTS,
     cfpTotal: total
   });
 
@@ -61,7 +64,7 @@ FORM.addEventListener('submit', e => {
   if (FNAME.value !== '' && LNAME.value !== '') {
     SUBMIT.textContent = '';
     //start(FNAME.value, LNAME.value, parseInt(FORM.housem.value), FORM.houses.value);
-    const fpObj = new FP(FNAME.value, LNAME.value, parseInt(FORM.housem.value), FORM.houses.value);
+    const fpObj = new FP(FNAME.value, LNAME.value, parseInt(FORM.housem.value), FORM.houses.value, FORM.foodc.value);
     //fpObj.houseHoldPts();
     //fpObj.houseSizePts();
     cfpData.push(fpObj)

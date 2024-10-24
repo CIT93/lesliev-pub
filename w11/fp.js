@@ -1,11 +1,13 @@
 class FP {
-    constructor(first, last, houseMembers, houseSize) {
+    constructor(first, last, houseMembers, houseSize, foodChoices) {
         this.first = first;
         this.last = last;
         this.houseMembers = houseMembers;
         this.houseSize = houseSize;
+        this.foodChoices = foodChoices;
         this.houseHoldPts();
         this.houseSizePts();
+        this.foodChoicesPts();
         this.total();
     }
     houseHoldPts() {
@@ -36,8 +38,19 @@ class FP {
             this.houseSizePts = 2;
         }
     }
+    foodChoicesPts() {
+      if (this.foodChoices === "domesticDaily") {
+        this.foodChoicesPts = 10;
+      } else if (this.foodChoices === "domesticFew") {
+        this.foodChoicesPts = 8;
+      } else if (this.foodChoices === "vegetarian") {
+        this.foodChoicesPts = 4;
+      } else if (this.foodChoices === "vegan") {
+        this.foodChoicesPts = 2;
+      }
+    }
     total() {
-        this.total = this.houseHoldPts + this.houseSizePts
+        this.total = this.houseHoldPts + this.houseSizePts + this.foodChoicesPts;
     }
 }
 

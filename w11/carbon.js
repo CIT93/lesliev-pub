@@ -33,4 +33,19 @@ const determineHouseSizePts = (houseSize = "small") => {
     return houseHoldPoints
   }
 
-  export {determineHouseSizePts, determineHouseHoldPts}
+  
+  const determineFoodChoicesPts = () => {
+    let foodChoicesPts = 0;
+    if (foodChoices === "domesticDaily") {
+      foodChoicesPts = 10;
+    } else if (foodChoices === "domesticFew") {
+      foodChoicesPts = 8;
+    } else if (foodChoices === "Vegetarian") {
+      foodChoicesPts = 4;
+    } else if (foodChoices === "Vegan") {
+      foodChoicesPts = 2;
+    }
+    return foodChoicesPts
+  }
+
+  export {determineHouseSizePts, determineHouseHoldPts, determineFoodChoicesPts}
