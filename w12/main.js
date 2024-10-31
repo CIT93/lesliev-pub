@@ -30,12 +30,12 @@ FORM.addEventListener("submit", (e) => {
     setTimeout(() => {
         newH2.textContent = `It should take ${repTime} Minutes`;
         output.appendChild(newH2);
-    }, 2 * 1000);
+    }, repTime * 1000);
 
     setTimeout(() => {
         newH3.textContent = `Stop ${exerciseType}!`;
         output.appendChild(newH3);
-    }, 5 * 1000);
+    }, repTime * 5000);
 
     FORM.reset();
 });
