@@ -5,7 +5,7 @@ const newH1 = document.createElement("h1");
 const newH2 = document.createElement("h2");
 const newH3 = document.createElement("h3");
 
-form.addEventListener("submit", (e) => {
+FORM.addEventListener("submit", (e) => {
     e.preventDefault();
     const exerciseType = FORM.exerciseType.value;
     let exerciseT;
