@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 12 - Async challenge</title>
+    <script type="module" defer src="main.js"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <form id="form">
+        <fieldset id="fieldset">
+           <legend>Time to get FIT!</legend>  
+        <div>
+            <label for="">Type of Exercise:</label>
+            <select name="exerciseType" required>
+                <option value="">---Please select a workout ---</option>
+                <option value="pull-ups">Pull-ups</option>
+                <option value="push-ups">Push-ups</option>
+                <option value="lunges">Lunges</option>
+                <option value="squats">Squats</option>
+                <option value="planks">Planks</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label for="">Target Number of Reps:</label>
+            <input type="number" name="repNumber" id="repNumber" min="1" max="40" required/>
+        </div>
+        <br>
+        <div>
+            <label for="">Time in Minutes:</label>
+            <input type="number" name="repTime" id="repTime" min="1" required/>
+        </div>
+        <br>
+        <div>Get Ready:
+        <button type="submit">Submit</button>
+        </div>
+        </fieldset>  
+    </form>
+<div class="start">Submit to Start!</div>
+<div id="output"></div>
+</body>
+</html>
