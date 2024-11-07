@@ -27,15 +27,22 @@ FORM.addEventListener("submit", (e) => {
     newH1.textContent = `Start ${exerciseType} <> Goal is ${repNumber} reps <>`;
     output.appendChild(newH1);
 
-    setTimeout(() => {
-        newH2.textContent = `It should take ${repTime} Minutes`;
-        output.appendChild(newH2);
-    }, repTime * 1000);
-
-    setTimeout(() => {
-        newH3.textContent = `Stop ${exerciseType}!`;
-        output.appendChild(newH3);
-    }, repTime * 5000);
+    new Promise((resolve) => {
+      setTimeout(() => {
+          newH2.textContent = `It should take ${repTime} Minutes`;
+          output.appendChild(newH2);
+          resolve();
+      }, repTime * 1000);
+  })
+  .then(() => new Promise((resolve) => {
+      setTimeout(() => {
+          newH3.textContent = `Stop ${exerciseType}!`;
+          output.appendChild(newH3);
+          console.log(`Success: ${exerciseType} workout loaded`);
+          resolve();
+      }, repTime * 5000);
+  }))
+  .catch((error) => console.error("Could not load workout:", error));
 
     FORM.reset();
 });
