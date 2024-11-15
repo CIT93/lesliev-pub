@@ -18,7 +18,7 @@ getUsers();
 function renderUsers(data) {
     data.forEach((user) => {
         const usersEl = document.createElement("h1")
-        usersEl.textContent = (`User ${user.name} 's,  email is ${user.email}`)
+        usersEl.textContent = (`User ${user.name} 's  email is ${user.email}`)
         document.getElementById("output").appendChild(usersEl)
     })
 }
