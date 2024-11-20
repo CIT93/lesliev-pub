@@ -2,6 +2,12 @@ import {FORM, TBL} from "./global.js"
 import {saveLS} from "./storage.js"
 
 
+const fpAverage = (data) => {
+  if (data.length === 0) return 0;
+  const total = data.reduce((sum, obj) => sum + (obj.total || 0), 0);
+  return total/data.length;
+};
+
 const renderTblHeading = () => {
   //TBL.innerHTML = "";
     const table = document.createElement("table");
@@ -68,16 +74,26 @@ const renderTblHeading = () => {
    return tbody
 }
 
-  const renderTbl = data => {
+  const renderTbl = (data) => {
     TBL.innerHTML = "";
     if(data.length !== 0) {
     const table = renderTblHeading();
     const tbody = renderTblBody(data);
     table.appendChild(tbody);
     TBL.appendChild(table);
-    } 
+
+    const avgFootprint = fpAverage(data);
+
+    const avgTextNode = document.createTextNode(`Average Carbon FP: ${avgFootprint.toFixed(2)}`);
+
+    TBL.appendChild(document.createElement("br"));
+    TBL.appendChild(avgTextNode);
+    }  else {
+      TBL.textContent = "Data Unavailable"
+    }
     
-  }
+  };
+
 
   export {renderTbl, renderTblHeading};
   
