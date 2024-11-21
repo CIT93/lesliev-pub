@@ -81,18 +81,29 @@ const renderTblHeading = () => {
     const tbody = renderTblBody(data);
     table.appendChild(tbody);
     TBL.appendChild(table);
+    insertRow(table, data);
 
     const avgFootprint = fpAverage(data);
 
-    const avgTextNode = document.createTextNode(`Average Carbon FP: ${avgFootprint.toFixed(2)}`);
+    // const avgTextNode = document.createTextNode(`Average Carbon FP: ${avgFootprint.toFixed(2)}`);
 
-    TBL.appendChild(document.createElement("br"));
-    TBL.appendChild(avgTextNode);
-    }  else {
-      TBL.textContent = "Data Unavailable"
-    }
+    // TBL.appendChild(document.createElement("br"));
+    // TBL.appendChild(avgTextNode);
+    // }  else {
+    //   TBL.textContent = "Data Unavailable"
+     }
     
   };
+
+  function insertRow(table, data) {
+    const newRow = table.insertRow(); 
+    const newCell = newRow.insertCell(0); 
+    newCell.textContent = (`Average Carbon FP `);
+    const avgCell = newRow.insertCell(1); 
+    avgCell.textContent = fpAverage(data); 
+    newCell.colSpan = 4;
+  }
+
 
 
   export {renderTbl, renderTblHeading};
