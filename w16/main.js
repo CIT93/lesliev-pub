@@ -1,6 +1,6 @@
 import { renderTbl } from "./render.js";
 import { determineHouseSizePts, determineHouseHoldPts, determineFoodChoicesPts } from "./carbon.js";
-import {FORM, FNAME, LNAME, SUBMIT} from "./global.js";
+import {FORM, FNAME, LNAME, SUBMIT, WATER, BOTH} from "./global.js";
 import {cfpData, saveLS} from "./storage.js";
 import{FP} from "./fp.js";
 
@@ -55,14 +55,24 @@ FORM.addEventListener("submit", (e) => {
       e.target.foodc.value,
       e.target.foodSource.value,
       parseInt(e.target.waterConsump.value),
+      e.target.both.checked ? parseInt(e.target.waterConsump.value) * 2 : parseInt(e.target.waterConsump.value),
+      e.target.both.checked,
       parseInt(e.target.purchases.value)
     );
     cfpData.push(fpObj);
     saveLS(cfpData);
     renderTbl(cfpData);
     FORM.reset();
+    BOTH.disabled = false;
   } else {
     SUBMIT.textContent = "Form requires first & last name";
   }
 });
 
+WATER.addEventListener("change", e=> {
+  if(parseInt(WATER.value) === 0){
+    BOTH.disabled = true;
+  } else {
+    BOTH.disabled = false;
+  }
+})

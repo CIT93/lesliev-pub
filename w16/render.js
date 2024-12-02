@@ -49,9 +49,10 @@ const renderTblHeading = () => {
       FORM[4].value = obj.houseSize;
       FORM[5].value = obj.foodChoices;
       FORM[6].value = obj.foodSource;
-      FORM.waterConsump.value = obj.waterConsumPts.toString();
+      FORM.waterConsump.value = obj.waterValue;
+      FORM.both.checked = obj.both;
       FORM.purchases.value = obj.purchasesPts.toString();
-      onUpdate(index, data);
+      onUpdate(index, data); 
     })
     return td;
   }

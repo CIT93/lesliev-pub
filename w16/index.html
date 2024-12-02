@@ -56,17 +56,16 @@
       </div>
       <div>
         <label for="">Examine your water consumption</label>
-        <select name="waterConsump" required>
+        <select name="waterConsump"  id="waterConsump" required>
           <option value="">---How many times is your Dishwasher/washing machine ran---</option>
           <option value="3">More than 9 times per week</option>
           <option value="2">Between 4 and 9 times per week</option>
           <option value="1">Between 1 and 3 times per week</option>
-          <option value="0">Don't have appliance</option>
+          <option value="0">Don't have either appliance</option>
         </select>
-      </div>
-      <div>
-        <label for="appliance">Do you own more than one appliance?</label>
-        <input type="checkbox" id="appliance" name="appliance">
+        <br>
+        <label for="appliance">Do you own both appliances?</label>
+        <input type="checkbox" id="both" name="both" id="both">
       </div>
       <div>
         <label for="">Determine household purchases per year</label>
@@ -79,6 +78,7 @@
           <option value="2">Almost nothing/only secondhand</option>
         </select>
       </div>
+      <br>
         <button type="submit">Submit</button>
         <span id="submitError" class="error"></span>
       </fieldset>
