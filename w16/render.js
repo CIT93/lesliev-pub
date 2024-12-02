@@ -50,6 +50,7 @@ const renderTblHeading = () => {
       FORM[5].value = obj.foodChoices;
       FORM[6].value = obj.foodSource;
       FORM.waterConsump.value = obj.waterConsumPts.toString();
+      FORM.purchases.value = obj.purchasesPts.toString();
       onUpdate(index, data);
     })
     return td;

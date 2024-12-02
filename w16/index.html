@@ -68,6 +68,17 @@
         <label for="appliance">Do you own more than one appliance?</label>
         <input type="checkbox" id="appliance" name="appliance">
       </div>
+      <div>
+        <label for="">Determine household purchases per year</label>
+        <select name="purchases" id="purchases" required>
+          <option value="">---Determine your household purchases---</option>
+          <option value="10">More than 7 new items</option>
+          <option value="8">Between 5 and 7 items</option>
+          <option value="6">Between 3 and 5 items</option>
+          <option value="4">Less than 3 items</option>
+          <option value="2">Almost nothing/only secondhand</option>
+        </select>
+      </div>
         <button type="submit">Submit</button>
         <span id="submitError" class="error"></span>
       </fieldset>
