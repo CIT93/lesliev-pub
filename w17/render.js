@@ -59,6 +59,9 @@ const renderTblHeading = () => {
       FORM.aluminum.checked = obj.recycle.aluminum;
       FORM.steel.checked = obj.recycle.steel;
       FORM.food.checked = obj.recycle.food;
+      FORM.vehicle.value = obj.vehiclePts;
+      FORM.transport.value = obj.transportPts;
+      FORM.flights.value = obj.flightsPts;
       onUpdate(index, data); 
     })
     return td;
