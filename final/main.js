@@ -6,7 +6,7 @@ const getElement = (id) => document.getElementById(id);
 const USNAME = getElement('username');
 
     class PlayerSelection {
-        constructor(userName, weapon, ability, level, isComp = false) {
+        constructor(userName, weapon, ability, level, isComp) {
             this.userName = userName;
             this.weapon = weapon;
             this.ability = ability;
@@ -14,13 +14,15 @@ const USNAME = getElement('username');
             this.isComp = isComp;
         }
     
-        getEffectivenessMessage() {
-            if ((this.level >= 10 && this.weapon === "Splat Roller" && this.ability === "Ink Saver (Main)") ||
-                (this.level >= 15 && this.weapon === "Splattershot" && this.ability === "Ninja Squid") ||
-                (this.level >= 10 && this.weapon === "Ink Brush" && this.ability === "Quick Respawn")) {
+        getEffectivenessMessage(weapon, ability, level) {
+            if (level >= 10 && weapon === "Splat Roller" && ability === "Ink Saver (Main)") {
                 return "This combination is effective for comp play!";
-            } else if (this.isComp && this.level < 10) {
-                return "You should level up before using this combo in comp.";
+            } else if (level >= 5 && weapon === "Splattershot" && ability === "Ninja Squid") {
+                return "This combination is effective for comp play!";
+            } else if (level >= 15 && weapon === "Ink Brush" && ability === "Quick Respawn") {
+                return "This combination is effective for comp play!";
+            } else if (level < 5) {
+                return "You should level up before using this combo in comp";
             } else {
                 return "This combo is not the best choice.";
             }
@@ -40,7 +42,7 @@ const USNAME = getElement('username');
         outputDiv.innerHTML = '';  
 
         if (selection.length === 0) {
-            outputDiv.innerHTML = '<p>Add your data to get started!</p>';
+            outputDiv.innerHTML = '';
             return;
         }
 
@@ -84,7 +86,7 @@ const USNAME = getElement('username');
         const userName = document.getElementById('username').value
         const weapon = document.getElementById('weapon').value;
         const ability = document.getElementById('ability').value;
-        const level = parseInt(document.getElementById('level').value, 10);
+        const level = parseInt(document.getElementById('level').value, 10) || 0;
 
         const newSelection = new PlayerSelection (
             userName,
@@ -99,12 +101,7 @@ const USNAME = getElement('username');
 
         setPlayerSelection();
 
-        //renderTbl(playerSelections);
-
         FORM.reset();
     });
 
     setPlayerSelection();
-
-
-
