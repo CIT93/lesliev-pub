@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Week 17 - Carbon Footprint - pri</title>
+    <title>Week 17 - Carbon Footprint - pub</title>
     <script type="module" src="main.js"></script>
     <link rel="stylesheet" href="style.css">
   </head>
@@ -111,9 +111,46 @@
         </label>
       </fieldset>
       <br>
+      <fieldset>
+        <legend>Transportation scores</legend>
+        <div>
+          <label for="vehicle">Personal Vehicle</label>
+          <select name="vehicle" id="vehicle" required>
+            <option value="">---Consider your travel in a personal vehicle---</option>
+            <option value="12">More than 15,000 miles</option>
+            <option value="10">Between 10,000 and 15,000 miles</option>
+            <option value="6">Between 1,000 to 10,000 miles</option>
+            <option value="4">Less than 1,000 miles</option>
+            <option value="0">Don't have a car</option>
+          </select>
+        </div>
+        <div>
+          <label for="transport">Public Transportation</label>
+          <select name="transport" id="transport" required>
+            <option value="">---Consider your travel in public transportation---</option>
+            <option value="12">More than 20,000 miles</option>
+            <option value="10">Between 15,000 and 20,000 miles</option>
+            <option value="6">Between 10,000 to 15,000 miles</option>
+            <option value="4">Between 1,000 to 10,000 miles</option>
+            <option value="2">Less than 1,000 miles</option>
+            <option value="0">Don't use public transport</option>
+          </select>
+        </div>
+        <div>
+          <label for="flights">Flight distances</label>
+          <select name="flights" id="flights" required>
+            <option value="">---Consider your travel in flights---</option>
+            <option value="20">Travel far (another continent)</option>
+            <option value="6">Travel a bit further (nearby state/country)</option>
+            <option value="2">Travel short distances (within state)</option>
+          </select>
+        </div>
+      </fieldset>
+      <br>
         <button type="submit">Submit</button>
         <span id="submitError" class="error"></span>
       </fieldset>
+      <br>
     </form>
     <div id="tab-data">
     </div>
